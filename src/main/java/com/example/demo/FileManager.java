@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class FileManager {
@@ -16,7 +17,7 @@ public class FileManager {
 
     public static ArrayList<String> Read(String fn) {
         ArrayList<String> text = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fn), "windows-1250"))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fn), StandardCharsets.UTF_8))) {
             String line;
             while((line = br.readLine()) != null) {
                 text.add(line);
